@@ -46,6 +46,28 @@ public class ServletModuloUsuarios extends HttpServlet{
 				}catch (Exception e) {
 					e.printStackTrace();
 				}
+			}else {
+				if(request.getParameter("action").equalsIgnoreCase("registroUsuario")){
+					RequestDispatcher dispatcher;
+					dispatcher=request.getRequestDispatcher("/registroUsuario.jsp");
+					dispatcher.forward(request, response);	
+				}else {
+					if(request.getParameter("action").equalsIgnoreCase("registroUsuario2")){
+						RequestDispatcher dispatcher;
+						dispatcher=request.getRequestDispatcher("/registroUsuario2.jsp");
+						dispatcher.forward(request, response);	
+					}else {
+						if(request.getParameter("action").equalsIgnoreCase("registroUsuario3")){
+							RequestDispatcher dispatcher;
+							dispatcher=request.getRequestDispatcher("/registroUsuario3.jsp");
+							dispatcher.forward(request, response);	
+						}else {
+							if(request.getParameter("action").equalsIgnoreCase("registroUsuario4")){
+								
+							}
+						}
+					}
+				}
 			}
 		}
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

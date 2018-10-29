@@ -87,40 +87,55 @@
     <table class="table table-bordered" cellspacing="0" witdh=100%>
     <tr>
             <td>
-            <b> 1) Datos generales </b>
+             1) Datos generales 
             </td>
             <td>
-            2) Preferencias 1
+             2) Perfil! 
             </td>
             <td>
-            3) Preferencias 2
+            <b> 3) Preferencias! </b>
             </td>
             <td>
             4) Foto!
             </td>
             <td>
-            5) ¡Listo!
+            5) Listo!
             </td>
             </tr>
             </table>
     </div>
       <div class="row">
         <div class="col-lg-12 text-center">
-        <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo.png" align =center/></h1>
-          <h1 class="mt-5"> Listo? Vamos a crear tu cuenta!</h1>
-          <p class="lead">Arranquemos por unos datos generales...</p>
+        <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo3.png" align =center/></h1>
+          <h1 class="mt-5"> Y sobre tus viajes, qué preferís? :)</h1>
+          <p class="lead">Seleccioná las opciones</p>
           <ul class="list-unstyled">
           </div>
           </div>
-          <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="registroUsuario2">
+          <form action="/SII_ClienteWeb/Servlets/ServletModuloVentas" method="post" id="loginUsuarios">
             <table class="table table-bordered" cellspacing="0" witdh=100%>
             
             <tr>
             <td>
-            Email:
+            Estilo:
             </td>
             <td>
-            <input class="form-control" id="email" name="email" type="text">
+            <label class="container">
+		  <input type="checkbox" checked="checked"> Montaña
+		  <span class="checkmark"></span>
+		  </label>
+		  <label class="container">
+		  <input type="checkbox" checked="checked"> Playa
+		  <span class="checkmark"></span>
+		  </label>
+		  <label class="container">
+		  <input type="checkbox" checked="checked"> Historia
+		  <span class="checkmark"></span>
+		  </label>
+		  <label class="container">
+		  <input type="checkbox" checked="checked"> Fiesta
+		  <span class="checkmark"></span>
+		  </label>
             </td>
             <tr>
             <td>
@@ -187,8 +202,8 @@
             </td>
             
             <td>
-            <input type="hidden" name="action" value="registroUsuario2">
-            <input type="submit" class="btn btn-primary" align=center name="registroUsuario2" value="¡Siguiente paso!">
+            <input type="hidden" name="action" value="loginUsuarios">
+            <input type="submit" class="btn btn-primary" align=center name="loginUsuarios" value="¡Siguiente paso!">
             </td>
             </tr>
             </table>

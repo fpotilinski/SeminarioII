@@ -86,8 +86,8 @@
       <div class="row">
      
         <div class="col-lg-12 text-center">
-        <h1 class="mt-5"> <img src="/SII_ClienteWeb/dino.png" align =center/></h1>
-          <h1 class="mt-5">Hola :)</h1>
+        
+          <h1 class="mt-5"> Hola :)<img src="/SII_ClienteWeb/dino.png" align =center/></h1>
           <p class="lead">Ingresa tus datos para acceder a Tripder!</p>
           <ul class="list-unstyled">
           <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="loginUsuarios">

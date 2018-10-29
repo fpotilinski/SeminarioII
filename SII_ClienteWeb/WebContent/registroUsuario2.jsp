@@ -87,99 +87,77 @@
     <table class="table table-bordered" cellspacing="0" witdh=100%>
     <tr>
             <td>
-            <b> 1) Datos generales </b>
+             1) Datos generales 
             </td>
             <td>
-            2) Preferencias 1
+            <b> 2) Perfil! </b>
             </td>
             <td>
-            3) Preferencias 2
+            3) Preferencias!
             </td>
             <td>
             4) Foto!
             </td>
             <td>
-            5) ¡Listo!
+            5) Listo!
             </td>
             </tr>
             </table>
     </div>
       <div class="row">
         <div class="col-lg-12 text-center">
-        <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo.png" align =center/></h1>
-          <h1 class="mt-5"> Listo? Vamos a crear tu cuenta!</h1>
-          <p class="lead">Arranquemos por unos datos generales...</p>
+        <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo2.png" align =center/></h1>
+          <h1 class="mt-5"> Genial! Sigamos creando tu cuenta :)</h1>
+          <p class="lead">Contanos un poco de vos...</p>
           <ul class="list-unstyled">
           </div>
           </div>
-          <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="registroUsuario2">
+          <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="registroUsuario3">
             <table class="table table-bordered" cellspacing="0" witdh=100%>
             
             <tr>
             <td>
-            Email:
+            ¿Cómo te presentarías?
             </td>
             <td>
-            <input class="form-control" id="email" name="email" type="text">
+            <textarea class="form-control" rows="10" cols="80" name="comment" form="usrform">
+			Enter text here...</textarea>
             </td>
             <tr>
             <td>
-            Password:
+            Ciudades que visitaste
             </td>
             <td>
-            <input class="form-control" id="password" name="password" type="password">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Nombre:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="text">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Apellido:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="text">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Fecha de Nacimiento:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="date">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Sexo:
-            </td>
-            <td> 
-            <label>
-            <input class="form-control" type="radio" name="numero" value="Hombre"> Hombre
-        </label>
-        <label>
-            <input class="form-control" type="radio" name="numero" value="Mujer"> Mujer
-        </label>
-        <label>
-            <input class="form-control" type="radio" name="numero" value="No informo"> No informo
-        </label>
-            </td>
-            </tr>
-            
-            <tr>
-            <td>
-            ¿En qué ciudad vivís?
-            </td>
-            <td>
+            <input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
+			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
+			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
+			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
 			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
 			<datalist id="json-paises"></datalist>
             </td>
             </tr>
+            <tr>
+            <td>
+            Ciudades que planeas visitar
+            </td>
+            <td>
+            <input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
+			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
+			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
+			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
+			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
+			<datalist id="json-paises"></datalist>
+            </td>
+            </tr>
+
             
             <tr>
             <td>
@@ -187,8 +165,8 @@
             </td>
             
             <td>
-            <input type="hidden" name="action" value="registroUsuario2">
-            <input type="submit" class="btn btn-primary" align=center name="registroUsuario2" value="¡Siguiente paso!">
+            <input type="hidden" name="action" value="registroUsuario3">
+            <input type="submit" class="btn btn-primary" align=center name="registroUsuario3" value="¡Siguiente paso!">
             </td>
             </tr>
             </table>
