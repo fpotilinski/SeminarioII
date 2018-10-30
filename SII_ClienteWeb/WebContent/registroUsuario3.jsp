@@ -83,27 +83,31 @@
 
     <!-- Page Content -->
     <div class="container">
-    <div class="row">
-    <table class="table table-bordered" cellspacing="0" witdh=100%>
+ <div class="progress">
+  <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 20%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 20%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+	
+	<table class="table table-bordered" cellspacing="0" witdh=80%>
+     
     <tr>
-            <td>
-             1) Datos generales 
+            <td width="20%">
+             Datos generales 
             </td>
-            <td>
-             2) Perfil! 
+            <td width="20%">
+             Perfil! 
             </td>
-            <td>
-            <b> 3) Preferencias! </b>
+            <td width="20%">
+             Preferencias! 
+            </td>  
+            <td width="20%">
+            <b> Foto! </b>
             </td>
-            <td>
-            4) Foto!
-            </td>
-            <td>
-            5) Listo!
+            <td width="20%">
+             Listo!
             </td>
             </tr>
             </table>
-    </div>
       <div class="row">
         <div class="col-lg-12 text-center">
         <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo3.png" align =center/></h1>
@@ -112,7 +116,8 @@
           <ul class="list-unstyled">
           </div>
           </div>
-          <form action="/SII_ClienteWeb/Servlets/ServletModuloVentas" method="post" id="loginUsuarios">
+          <div class="shadow-sm p-3 mb-5 bg-white rounded">
+          <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="registroUsuario4">
             <table class="table table-bordered" cellspacing="0" witdh=100%>
             
             <tr>
@@ -202,13 +207,13 @@
             </td>
             
             <td>
-            <input type="hidden" name="action" value="loginUsuarios">
-            <input type="submit" class="btn btn-primary" align=center name="loginUsuarios" value="¡Siguiente paso!">
+            <input type="hidden" name="action" value="registroUsuario4">
+            <input type="submit" class="btn btn-primary" align=center name="registroUsuario4" value="¡Siguiente paso!">
             </td>
             </tr>
             </table>
             </form>
-
+			</div>
           </ul>
     </div>
 

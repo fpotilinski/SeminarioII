@@ -63,7 +63,15 @@ public class ServletModuloUsuarios extends HttpServlet{
 							dispatcher.forward(request, response);	
 						}else {
 							if(request.getParameter("action").equalsIgnoreCase("registroUsuario4")){
-								
+								RequestDispatcher dispatcher;
+								dispatcher=request.getRequestDispatcher("/registroUsuario4.jsp");
+								dispatcher.forward(request, response);	
+							}else {
+								if(request.getParameter("action").equalsIgnoreCase("registroFinalizado")){
+									RequestDispatcher dispatcher;
+									dispatcher=request.getRequestDispatcher("/registroFinalizado.jsp");
+									dispatcher.forward(request, response);	
+								}	
 							}
 						}
 					}

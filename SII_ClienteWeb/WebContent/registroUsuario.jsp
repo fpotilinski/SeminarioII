@@ -83,27 +83,30 @@
 
     <!-- Page Content -->
     <div class="container">
-    <div class="row">
-    <table class="table table-bordered" cellspacing="0" witdh=100%>
+<div class="progress">
+
+</div>
+	
+	<table class="table table-bordered" cellspacing="0" witdh=80%>
+     
     <tr>
-            <td>
-            <b> 1) Datos generales </b>
+            <td width="20%">
+             Datos generales 
             </td>
-            <td>
-            2) Preferencias 1
+            <td width="20%">
+             Perfil! 
             </td>
-            <td>
-            3) Preferencias 2
+            <td width="20%">
+             Preferencias! 
+            </td>  
+            <td width="20%">
+            <b> Foto! </b>
             </td>
-            <td>
-            4) Foto!
-            </td>
-            <td>
-            5) ¡Listo!
+            <td width="20%">
+             Listo!
             </td>
             </tr>
             </table>
-    </div>
       <div class="row">
         <div class="col-lg-12 text-center">
         <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo.png" align =center/></h1>
