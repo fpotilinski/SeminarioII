@@ -16,10 +16,10 @@ request.onreadystatechange = function(response) {
         option.value = item;
         dataList.appendChild(option);
       });
-      input.placeholder = "Escribe el nombre de un país";
+      input.placeholder = "Escribe el nombre de una ciudad";
     } else {
       // Error!
-      input.placeholder = "Error al cargar lista de países ;^(";
+      input.placeholder = "Error al cargar lista de países";
     }
   }
 };

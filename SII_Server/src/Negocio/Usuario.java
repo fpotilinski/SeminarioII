@@ -13,6 +13,7 @@ public class Usuario {
 	private String apellido;
 	private Date fechaNacimiento;
 	private String sexo;
+	private String presentacion;
 	
 	public Usuario(int idUsuario, String email, String password, String avatar, String nombre,
 			String apellido, Date fechaNacimiento, String sexo) {

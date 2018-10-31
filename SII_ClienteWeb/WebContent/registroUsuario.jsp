@@ -91,7 +91,7 @@
      
     <tr>
             <td width="20%">
-             Datos generales 
+            <b> Datos generales </b>
             </td>
             <td width="20%">
              Perfil! 
@@ -100,7 +100,7 @@
              Preferencias! 
             </td>  
             <td width="20%">
-            <b> Foto! </b>
+            Foto!
             </td>
             <td width="20%">
              Listo!
@@ -109,94 +109,58 @@
             </table>
       <div class="row">
         <div class="col-lg-12 text-center">
-        <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo.png" align =center/></h1>
+        <img src="/SII_ClienteWeb/huevo.png" align =center/>
           <h1 class="mt-5"> Listo? Vamos a crear tu cuenta!</h1>
           <p class="lead">Arranquemos por unos datos generales...</p>
           <ul class="list-unstyled">
           </div>
           </div>
+          <div class="shadow-sm p-3 mb-5 bg-white rounded">
           <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="registroUsuario2">
-            <table class="table table-bordered" cellspacing="0" witdh=100%>
-            
-            <tr>
-            <td>
-            Email:
-            </td>
-            <td>
-            <input class="form-control" id="email" name="email" type="text">
-            </td>
-            <tr>
-            <td>
-            Password:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="password">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Nombre:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="text">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Apellido:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="text">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Fecha de Nacimiento:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="date">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Sexo:
-            </td>
-            <td> 
-            <label>
-            <input class="form-control" type="radio" name="numero" value="Hombre"> Hombre
-        </label>
-        <label>
-            <input class="form-control" type="radio" name="numero" value="Mujer"> Mujer
-        </label>
-        <label>
-            <input class="form-control" type="radio" name="numero" value="No informo"> No informo
-        </label>
-            </td>
-            </tr>
-            
-            <tr>
-            <td>
-            ¿En qué ciudad vivís?
-            </td>
-            <td>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-            </td>
-            </tr>
-            
-            <tr>
-            <td>
-             
-            </td>
-            
-            <td>
-            <input type="hidden" name="action" value="registroUsuario2">
-            <input type="submit" class="btn btn-primary" align=center name="registroUsuario2" value="¡Siguiente paso!">
-            </td>
-            </tr>
-            </table>
-            </form>
-
+			  <div class="form-row">
+			    <div class="col-md-4 mb-3">
+			      <label for="validationServer01">Email</label>
+			      <input type="text" class="form-control" id="email" required>
+			    </div>
+			    <div class="col-md-4 mb-3">
+			      <label for="validationServer02">Contraseña</label>
+			      <input type="password" class="form-control" id="password"  required>
+			    </div>
+			    <div class="col-md-4 mb-3">
+			      <label for="validationServerUsername">Usuario</label>
+			      <div class="input-group">
+			        <div class="input-group-prepend">
+			          <span class="input-group-text" id="inputGroupPrepend3">@</span>
+			        </div>
+			        <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label for="validationServer03">Nombre</label>
+			      <input type="text" class="form-control" id="validationServer03"required>
+			    </div>
+			    <div class="col-md-3 mb-3">
+			      <label for="validationServer04">Apellido</label>
+			      <input type="text" class="form-control" id="validationServer04" required>
+			    </div>
+			    <div class="col-md-3 mb-3">
+			      <label for="validationServer05">Fecha de Nacimiento</label>
+			      <input type="date" class="form-control" id="validationServer05" required>
+			    </div>
+			  </div>
+			  	<div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label for="validationServer03">¿En qué ciudad vivís?</label>
+			      <input class="form-control" id="paises" name="ciudad" list="json-paises"  required />
+				  <datalist id="json-paises"></datalist>
+			    </div>
+			  </div>
+			  <input type="hidden" name="action" value="registroUsuario2">
+            <input type="submit" class="btn btn-dark" align=center name="registroUsuario2" value="¡Siguiente paso!">
+			</form>
+</div>
           </ul>
     </div>
 

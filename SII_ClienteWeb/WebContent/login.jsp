@@ -90,6 +90,7 @@
           <h1 class="mt-5"> Hola :)<img src="/SII_ClienteWeb/dino.png" align =center/></h1>
           <p class="lead">Ingresa tus datos para acceder a Tripder!</p>
           <ul class="list-unstyled">
+          <div class="shadow-sm p-3 mb-5 bg-white rounded">
           <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="loginUsuarios">
             <table class="table table-bordered" cellspacing="0" witdh=50%>
             
@@ -116,12 +117,13 @@
             
             <td>
             <input type="hidden" name="action" value="loginUsuarios">
-            <input type="submit" class="btn btn-primary" align=center name="loginUsuarios" value="Ingresar">
+            <a class="btn btn-dark" href="/SII_ClienteWeb/Servlets/ServletModuloUsuarios?action=registroUsuario">¡Quiero registrarme!</a>
+            <input type="submit" class="btn btn-dark" align=center name="loginUsuarios" value="Ingresar">
             </td>
             </tr>
             </table>
             </form>
-
+</div>
           </ul>
         </div>
       </div>

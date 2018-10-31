@@ -98,10 +98,10 @@
              Perfil! 
             </td>
             <td width="20%">
-             Preferencias! 
+             <b>Preferencias! </b>
             </td>  
             <td width="20%">
-            <b> Foto! </b>
+            Foto! 
             </td>
             <td width="20%">
              Listo!
@@ -110,7 +110,7 @@
             </table>
       <div class="row">
         <div class="col-lg-12 text-center">
-        <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo3.png" align =center/></h1>
+        <img src="/SII_ClienteWeb/huevo3.png" align =center/>
           <h1 class="mt-5"> Y sobre tus viajes, qué preferís? :)</h1>
           <p class="lead">Seleccioná las opciones</p>
           <ul class="list-unstyled">
@@ -118,104 +118,84 @@
           </div>
           <div class="shadow-sm p-3 mb-5 bg-white rounded">
           <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="registroUsuario4">
-            <table class="table table-bordered" cellspacing="0" witdh=100%>
-            
-            <tr>
-            <td>
-            Estilo:
-            </td>
-            <td>
-            <label class="container">
-		  <input type="checkbox" checked="checked"> Montaña
-		  <span class="checkmark"></span>
-		  </label>
-		  <label class="container">
-		  <input type="checkbox" checked="checked"> Playa
-		  <span class="checkmark"></span>
-		  </label>
-		  <label class="container">
-		  <input type="checkbox" checked="checked"> Historia
-		  <span class="checkmark"></span>
-		  </label>
-		  <label class="container">
-		  <input type="checkbox" checked="checked"> Fiesta
-		  <span class="checkmark"></span>
-		  </label>
-            </td>
-            <tr>
-            <td>
-            Password:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="password">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Nombre:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="text">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Apellido:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="text">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Fecha de Nacimiento:
-            </td>
-            <td>
-            <input class="form-control" id="password" name="password" type="date">
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Sexo:
-            </td>
-            <td> 
-            <label>
-            <input class="form-control" type="radio" name="numero" value="Hombre"> Hombre
-        </label>
-        <label>
-            <input class="form-control" type="radio" name="numero" value="Mujer"> Mujer
-        </label>
-        <label>
-            <input class="form-control" type="radio" name="numero" value="No informo"> No informo
-        </label>
-            </td>
-            </tr>
-            
-            <tr>
-            <td>
-            ¿En qué ciudad vivís?
-            </td>
-            <td>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-            </td>
-            </tr>
-            
-            <tr>
-            <td>
-             
-            </td>
-            
-            <td>
+			  <div class="form-row">
+			  <div class="col-md-6 mb-3">
+			  <label for="validationServer03"><b>Mi estilo de viaje es...</b></label></br>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+				  <label class="form-check-label" for="inlineCheckbox1">Relax</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+				  <label class="form-check-label" for="inlineCheckbox2">Aventura</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Diversión</label>
+				</div>
+			  </div>
+			  
+			  <div class="col-md-6 mb-3">
+			  <label for="validationServer03"><b>Prefiero...</b></label></br>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+				  <label class="form-check-label" for="inlineCheckbox1">Playa</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+				  <label class="form-check-label" for="inlineCheckbox2">Montaña</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Selva</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Ciudad</label>
+				</div>
+			  </div>
+			  </div>
+			  <div class="form-row">
+			  <div class="col-md-6 mb-3">
+			  <label for="validationServer03"><b>Me interesa...</b></label></br>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+				  <label class="form-check-label" for="inlineCheckbox1">Gastronomia</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+				  <label class="form-check-label" for="inlineCheckbox2">Historia y Cultura</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Pubs & Parties</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Free walking tours</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Tours organizados</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Conocer gente nueva</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Actividades grupales</label>
+				</div>
+			  </div>
+			  </div>
             <input type="hidden" name="action" value="registroUsuario4">
-            <input type="submit" class="btn btn-primary" align=center name="registroUsuario4" value="¡Siguiente paso!">
-            </td>
-            </tr>
-            </table>
-            </form>
-			</div>
+            <input type="submit" class="btn btn-dark" align=center name="registroUsuario4" value="¡Siguiente paso!">
+			</form>
+</div>
           </ul>
     </div>
+    
+ 
 
  
     <!-- Bootstrap core JavaScript -->

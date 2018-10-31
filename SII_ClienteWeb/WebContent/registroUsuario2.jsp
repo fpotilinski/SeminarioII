@@ -94,13 +94,13 @@
              Datos generales 
             </td>
             <td width="20%">
-             Perfil! 
+             <b>Perfil! </b>
             </td>
             <td width="20%">
              Preferencias! 
             </td>  
             <td width="20%">
-            <b> Foto! </b>
+             Foto! 
             </td>
             <td width="20%">
              Listo!
@@ -109,80 +109,62 @@
             </table>
       <div class="row">
         <div class="col-lg-12 text-center">
-        <h1 class="mt-5"> <img src="/SII_ClienteWeb/huevo2.png" align =center/></h1>
+        <img src="/SII_ClienteWeb/huevo2.png" align =center/>
           <h1 class="mt-5"> Genial! Sigamos creando tu cuenta :)</h1>
           <p class="lead">Contanos un poco de vos...</p>
           <ul class="list-unstyled">
           </div>
           </div>
+          <div class="shadow-sm p-3 mb-5 bg-white rounded">
           <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="registroUsuario3">
-            <table class="table table-bordered" cellspacing="0" witdh=100%>
-            
-            <tr>
-            <td>
-            ¿Cómo te presentarías?
-            </td>
-            <td>
-            <textarea class="form-control" rows="10" cols="80" name="comment" form="usrform">
-			Enter text here...</textarea>
-            </td>
-            <tr>
-            <td>
-            Ciudades que visitaste
-            </td>
-            <td>
-            <input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-            </td>
-            </tr>
-            <tr>
-            <td>
-            Ciudades que planeas visitar
-            </td>
-            <td>
-            <input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-			<input class="form-control" id="paises" list="json-paises" placeholder="Escribe el nombre de un país" />
-			<datalist id="json-paises"></datalist>
-            </td>
-            </tr>
+			  <div class="form-row">
+			    
+			      <label for="validationServer01">¿Cómo te presentarías?</label>
+			      <textarea class="form-control" name="presentacion" id="exampleFormControlTextarea1" rows="3"></textarea>
+			    
 
-            
-            <tr>
-            <td>
-             
-            </td>
-            
-            <td>
+			  </div>
+			  <div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label for="validationServer03">¿Qué ciudades visitaste?</label> 
+			      
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_visitada1" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+					</br>
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_visitada2" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+					</br>
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_visitada3" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+			    </div>
+			  </div>
+			  	<div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label for="validationServer03">¿Qué ciudades planeás visitar?</label>
+			      <div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada1" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+					</br>
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada2" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+					</br>
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada3" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+			    </div>
+			  </div>
             <input type="hidden" name="action" value="registroUsuario3">
-            <input type="submit" class="btn btn-primary" align=center name="registroUsuario3" value="¡Siguiente paso!">
-            </td>
-            </tr>
-            </table>
-            </form>
-
+            <input type="submit" class="btn btn-dark" align=center name="registroUsuario3" value="¡Siguiente paso!">
+			</form>
+</div>
           </ul>
     </div>
+    
 
  
     <!-- Bootstrap core JavaScript -->
     <script src="/SII_ClienteWeb/vendor/jquery/jquery.min.js"></script>
     <script src="/SII_ClienteWeb/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/SII_ClienteWeb/js/cargaCiudades.js"></script>
+<script src="/SII_ClienteWeb/js/duplicarCampo.js"></script>
   </body>
 
 </html>
