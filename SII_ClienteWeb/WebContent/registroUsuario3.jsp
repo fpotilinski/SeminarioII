@@ -133,6 +133,10 @@
 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
 				  <label class="form-check-label" for="inlineCheckbox3">Diversión</label>
 				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Descubrimiento</label>
+				</div>
 			  </div>
 			  
 			  <div class="col-md-6 mb-3">
@@ -185,6 +189,38 @@
 				<div class="form-check form-check-inline">
 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
 				  <label class="form-check-label" for="inlineCheckbox3">Actividades grupales</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Shopping</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Cine</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Música</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Deportes extremos</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Museos</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Playa y cruceros</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Turismo Mítico</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+				  <label class="form-check-label" for="inlineCheckbox3">Aire libre y naturaleza</label>
 				</div>
 			  </div>
 			  </div>

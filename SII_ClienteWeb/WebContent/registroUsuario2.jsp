@@ -138,9 +138,35 @@
 					<datalist id="json-paises"></datalist></div>
 			    </div>
 			  </div>
-			  	<div class="form-row">
+			  <div class="form-row">
 			    <div class="col-md-6 mb-3">
 			      <label for="validationServer03">¿Qué ciudades planeás visitar?</label>
+			      <div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada1" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+					</br>
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada2" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+					</br>
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada3" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+			    </div>
+			  </div>
+			  <div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label for="validationServer03">¿Qué idiomas hablás?</label>
+			      <div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada1" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+					</br>
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada2" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+					</br>
+					<div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada3" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
+					<datalist id="json-paises"></datalist></div>
+			    </div>
+			  </div>
+			  <div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label for="validationServer03">¿Qué idiomas estás aprendiendo?</label>
 			      <div class="form-row" id="ciudad"><input class="form-control" name="ciudad_deseada1" id="paises" list="json-paises" placeholder="Escribe el nombre de una ciudad" />
 					<datalist id="json-paises"></datalist></div>
 					</br>

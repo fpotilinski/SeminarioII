@@ -157,6 +157,12 @@
 				  <datalist id="json-paises"></datalist>
 			    </div>
 			  </div>
+			  <div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label for="validationServer03">¿A qué te dedicás?</label>
+			      <input type="text" class="form-control" id="validationServer04" required>
+			    </div>
+			  </div>
 			  <input type="hidden" name="action" value="registroUsuario2">
             <input type="submit" class="btn btn-dark" align=center name="registroUsuario2" value="¡Siguiente paso!">
 			</form>
