@@ -1,12 +1,19 @@
 package Entities;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,7 +37,57 @@ public class UsuarioEntity {
 	private Date fechaNacimiento;
 	@Column(name="sexo")
 	private String sexo;
-
+	@Column(name="presentacion")
+	private String presentacion;
+    @ManyToMany(cascade = { 
+            CascadeType.PERSIST, 
+            CascadeType.MERGE
+        })
+        @JoinTable(name = "Usuario_Preferencias",
+            joinColumns = @JoinColumn(name = "idUsuario"),
+            inverseJoinColumns = @JoinColumn(name = "idPreferencia")
+        )
+	private List<PreferenciaEntity> preferencias;
+    @ManyToMany(cascade = { 
+            CascadeType.PERSIST, 
+            CascadeType.MERGE
+        })
+        @JoinTable(name = "Usuario_CiudadesVisitadas",
+            joinColumns = @JoinColumn(name = "idUsuario"),
+            inverseJoinColumns = @JoinColumn(name = "idCiudad")
+        )
+	private List<CiudadEntity> ciudadesVisitadas;
+    @ManyToMany(cascade = { 
+            CascadeType.PERSIST, 
+            CascadeType.MERGE
+        })
+        @JoinTable(name = "Usuario_CiudadesDeseadas",
+            joinColumns = @JoinColumn(name = "idUsuario"),
+            inverseJoinColumns = @JoinColumn(name = "idCiudad")
+        )
+	private List<CiudadEntity> ciudadesDeseadas;
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="idItinerario")
+	private List<ItinerarioEntity> itinerariosPropios;
+	
+	@ManyToMany(mappedBy = "invitados")
+	private List<ItinerarioEntity> itinerariosInvitado;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="ciudadResidencia")
+	private CiudadEntity ciudadResidencia;
+	@ManyToMany(mappedBy = "usuarios")
+	private List<IdiomaEntity> idiomas;
+	
+    @ManyToMany(cascade = { 
+            CascadeType.PERSIST, 
+            CascadeType.MERGE
+        })
+        @JoinTable(name = "Usuario_Chat",
+            joinColumns = @JoinColumn(name = "idUsuario"),
+            inverseJoinColumns = @JoinColumn(name = "idChat")
+        )
+	private List<ChatEntity> chats;
+	
 	public UsuarioEntity() {}
 
 	public Integer getIdUsuario() {
@@ -96,4 +153,48 @@ public class UsuarioEntity {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
+
+	public String getPresentacion() {
+		return presentacion;
+	}
+
+	public void setPresentacion(String presentacion) {
+		this.presentacion = presentacion;
+	}
+
+	public List<PreferenciaEntity> getPreferencias() {
+		return preferencias;
+	}
+
+	public void setPreferencias(List<PreferenciaEntity> preferencias) {
+		this.preferencias = preferencias;
+	}
+
+	public List<CiudadEntity> getCiudadesVisitadas() {
+		return ciudadesVisitadas;
+	}
+
+	public void setCiudadesVisitadas(List<CiudadEntity> ciudadesVisitadas) {
+		this.ciudadesVisitadas = ciudadesVisitadas;
+	}
+
+	public List<CiudadEntity> getCiudadesDeseadas() {
+		return ciudadesDeseadas;
+	}
+
+	public void setCiudadesDeseadas(List<CiudadEntity> ciudadesDeseadas) {
+		this.ciudadesDeseadas = ciudadesDeseadas;
+	}
+
+
+
+	public CiudadEntity getCiudadResidencia() {
+		return ciudadResidencia;
+	}
+
+	public void setCiudadResidencia(CiudadEntity ciudadResidencia) {
+		this.ciudadResidencia = ciudadResidencia;
+	}
+
+
 }

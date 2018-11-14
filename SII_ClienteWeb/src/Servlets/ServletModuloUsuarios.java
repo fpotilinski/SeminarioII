@@ -1,5 +1,6 @@
 package Servlets;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DTO.PreferenciaDTO;
 import DTO.UsuarioDTO;
 import Delegado.BusinessDelegate;
 
@@ -59,6 +61,10 @@ public class ServletModuloUsuarios extends HttpServlet{
 					}else {
 						if(request.getParameter("action").equalsIgnoreCase("registroUsuario3")){
 							RequestDispatcher dispatcher;
+							// Buscamos las preferencias parametrizadas en sistema y son las que se ofrecen
+							// Para seleccionar. Convendria armar un JSON para que las elijan tipo linkedin. 
+							List<PreferenciaDTO> preferencias = BusinessDelegate.getInstancia().listadoPreferencias();
+							request.setAttribute("preferencias", preferencias);
 							dispatcher=request.getRequestDispatcher("/registroUsuario3.jsp");
 							dispatcher.forward(request, response);	
 						}else {
@@ -68,10 +74,22 @@ public class ServletModuloUsuarios extends HttpServlet{
 								dispatcher.forward(request, response);	
 							}else {
 								if(request.getParameter("action").equalsIgnoreCase("registroFinalizado")){
+									// Finalizar registro - Tomar usuario de sesion y mandarlo a grabar!
 									RequestDispatcher dispatcher;
+									UsuarioDTO usuario = new UsuarioDTO();
+									usuario = (UsuarioDTO) session.getAttribute("usuario");
+									BusinessDelegate.getInstancia().registrarUsuario(usuario);
 									dispatcher=request.getRequestDispatcher("/registroFinalizado.jsp");
 									dispatcher.forward(request, response);	
-								}	
+								}else {
+									if(request.getParameter("action").equalsIgnoreCase("cancelarRegistro")) {
+										RequestDispatcher dispatcher;
+										// Si cancela el registro, matamos el atributo usuario de sesion y redirigimos
+										session.removeAttribute("usuario");
+										dispatcher=request.getRequestDispatcher("/registroCancelado.jsp");
+										dispatcher.forward(request, response);	
+									}
+								}
 							}
 						}
 					}

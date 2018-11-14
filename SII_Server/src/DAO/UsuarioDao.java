@@ -41,6 +41,10 @@ public class UsuarioDao {
 	public void save(Usuario usuario) {
 		
 	}
+	
+	public Usuario buscarUsuarioById(int idUsuario) {
+		
+	}
 
 	
 	public UsuarioDTO toDTO(UsuarioEntity usuario) {
