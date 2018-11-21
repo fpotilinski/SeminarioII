@@ -30,4 +30,32 @@ public class ChatEntity {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<MensajeEntity> mensajes;
 
+	public ChatEntity(){
+		
+	}
+	
+	public Integer getIdChat() {
+		return idChat;
+	}
+	public void setIdChat(Integer idChat) {
+		this.idChat = idChat;
+	}
+	public String getReferencia() {
+		return referencia;
+	}
+	public void setReferencia(String referencia) {
+		this.referencia = referencia;
+	}
+	public List<UsuarioEntity> getUsuarios() {
+		return usuarios;
+	}
+	public void setUsuarios(List<UsuarioEntity> usuarios) {
+		this.usuarios = usuarios;
+	}
+	public List<MensajeEntity> getMensajes() {
+		return mensajes;
+	}
+	public void setMensajes(List<MensajeEntity> mensajes) {
+		this.mensajes = mensajes;
+	}
 }

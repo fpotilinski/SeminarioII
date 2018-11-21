@@ -60,4 +60,17 @@ public class UsuarioDao {
 		return aux;
 	}
 
+	
+	public UsuarioEntity dtoToEntity(UsuarioDTO usuario) {
+		UsuarioEntity aux = new UsuarioEntity();
+		aux.setApellido(usuario.getApellido());
+		aux.setAvatar(usuario.getAvatar());
+		aux.setEmail(usuario.getEmail());
+		aux.setFechaNacimiento(usuario.getFechaNacimiento());
+		aux.setIdUsuario(usuario.getIdUsuario());
+		aux.setNombre(usuario.getNombre());
+		aux.setPassword(usuario.getPassword());
+		aux.setSexo(usuario.getSexo());
+		return aux;
+	}
 }

@@ -68,6 +68,20 @@ public class MensajeEntity {
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
+	public UsuarioEntity getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioEntity usuario) {
+		this.usuario = usuario;
+	}
+
+	public ChatEntity getChat() {
+		return chat;
+	}
+
+	public void setChat(ChatEntity chat) {
+		this.chat = chat;
+	}
 	
 }
