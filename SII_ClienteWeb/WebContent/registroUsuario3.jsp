@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -121,107 +123,129 @@
 			  <div class="form-row">
 			  <div class="col-md-6 mb-3">
 			  <label for="validationServer03"><b>Mi estilo de viaje es...</b></label></br>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-				  <label class="form-check-label" for="inlineCheckbox1">Relax</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-				  <label class="form-check-label" for="inlineCheckbox2">Aventura</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Diversión</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Descubrimiento</label>
-				</div>
+				<c:forEach items="${estilos}" var="estilo">
+					<div class="form-check form-check-inline">
+				  		<input class="form-check-input" type="checkbox" id="${estilo.idPreferencia}" value="${estilo.nombre}">
+				  		<label class="form-check-label" for="${estilo.idPreferencia}">${estilo.nombre}</label>
+					</div>
+				</c:forEach>
+				
+				
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox1">Relax</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox2">Aventura</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Diversión</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Descubrimiento</label> -->
+<!-- 				</div> -->
 			  </div>
 			  
 			  <div class="col-md-6 mb-3">
-			  <label for="validationServer03"><b>Prefiero...</b></label></br>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-				  <label class="form-check-label" for="inlineCheckbox1">Playa</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-				  <label class="form-check-label" for="inlineCheckbox2">Montaña</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Selva</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Ciudad</label>
-				</div>
+			  <label for="validationServer03"><b>Preferencias...</b></label></br>
+				<c:forEach items="${lugares}" var="lugar">
+					<div class="form-check form-check-inline">
+				  		<input class="form-check-input" type="checkbox" id="${lugar.idPreferencia}" value="${lugar.nombre}">
+				  		<label class="form-check-label" for="${lugar.idPreferencia}">${lugar.nombre}</label>
+					</div>
+				</c:forEach>
+				
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox1">Playa</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox2">Montaña</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Selva</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Ciudad</label> -->
+<!-- 				</div> -->
 			  </div>
 			  </div>
 			  <div class="form-row">
 			  <div class="col-md-6 mb-3">
 			  <label for="validationServer03"><b>Me interesa...</b></label></br>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-				  <label class="form-check-label" for="inlineCheckbox1">Gastronomia</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-				  <label class="form-check-label" for="inlineCheckbox2">Historia y Cultura</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Pubs & Parties</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Free walking tours</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Tours organizados</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Conocer gente nueva</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Actividades grupales</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Shopping</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Cine</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Música</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Deportes extremos</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Museos</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Playa y cruceros</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Turismo Mítico</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-				  <label class="form-check-label" for="inlineCheckbox3">Aire libre y naturaleza</label>
-				</div>
+				<c:forEach items="${actividades}" var="actividad">
+					<div class="form-check form-check-inline">
+				  		<input class="form-check-input" type="checkbox" id="${actividad.idPreferencia}" value="${actividad.nombre}">
+				  		<label class="form-check-label" for="${actividad.idPreferencia}">${actividad.nombre}</label>
+					</div>
+				</c:forEach>
+				
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox1">Gastronomia</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox2">Historia y Cultura</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Pubs & Parties</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Free walking tours</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Tours organizados</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Conocer gente nueva</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Actividades grupales</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Shopping</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Cine</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Música</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Deportes extremos</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Museos</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Playa y cruceros</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Turismo Mítico</label> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-check form-check-inline"> -->
+<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
+<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Aire libre y naturaleza</label> -->
+<!-- 				</div> -->
 			  </div>
 			  </div>
             <input type="hidden" name="action" value="registroUsuario4">

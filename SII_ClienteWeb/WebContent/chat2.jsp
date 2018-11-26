@@ -1161,12 +1161,10 @@ body {
 		});
 
 		$(".contact").click(function() {
-			
+// 			$("#mensajes").empty();
 			$("#cabeceraMensajes").find("p").first().text($(this).find("p").first().text());
 			$("#cabeceraMensajes").find("img").attr("src", $(this).find("img").attr("src"));
-			
-// 			alert();
-			$("#mensajes").empty();
+		
 		});
 
 		$(".expand-button").click(function() {

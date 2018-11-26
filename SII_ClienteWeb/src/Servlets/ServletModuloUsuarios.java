@@ -1,5 +1,6 @@
 package Servlets;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DTO.CiudadDTO;
 import DTO.PreferenciaDTO;
 import DTO.UsuarioDTO;
 import Delegado.BusinessDelegate;
@@ -56,6 +58,14 @@ public class ServletModuloUsuarios extends HttpServlet{
 				}else {
 					if(request.getParameter("action").equalsIgnoreCase("registroUsuario2")){
 						RequestDispatcher dispatcher;
+						try {
+							List<CiudadDTO> ciudades = new ArrayList<CiudadDTO>();
+							ciudades = BusinessDelegate.getInstancia().listarCiudades();
+							request.setAttribute("ciudades", ciudades);							
+						} catch (Exception e) {
+							// TODO: handle exception
+						}
+						
 						dispatcher=request.getRequestDispatcher("/registroUsuario2.jsp");
 						dispatcher.forward(request, response);	
 					}else {
@@ -64,7 +74,24 @@ public class ServletModuloUsuarios extends HttpServlet{
 							// Buscamos las preferencias parametrizadas en sistema y son las que se ofrecen
 							// Para seleccionar. Convendria armar un JSON para que las elijan tipo linkedin. 
 							List<PreferenciaDTO> preferencias = BusinessDelegate.getInstancia().listadoPreferencias();
-							request.setAttribute("preferencias", preferencias);
+							List<PreferenciaDTO> estilos = new ArrayList<PreferenciaDTO>();
+							List<PreferenciaDTO> lugares = new ArrayList<PreferenciaDTO>();
+							List<PreferenciaDTO> actividades = new ArrayList<PreferenciaDTO>();
+							
+							for (PreferenciaDTO p : preferencias) {
+								if (p.getTipo().equals("Estilo")) {
+									estilos.add(p);
+								}else if (p.getTipo().equals("Lugar")) {
+									lugares.add(p);
+								}else if (p.getTipo().equals("Actividad")){
+									actividades.add(p);
+								}
+								
+							}
+							request.setAttribute("estilos", estilos);
+							request.setAttribute("lugares", lugares);
+							request.setAttribute("actividades", actividades);
+//							request.setAttribute("preferencias", preferencias);
 							dispatcher=request.getRequestDispatcher("/registroUsuario3.jsp");
 							dispatcher.forward(request, response);	
 						}else {

@@ -1,13 +1,10 @@
 package Entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +18,8 @@ public class PreferenciaEntity {
 	private String tipo;
 	@Column(name="nombre")
 	private String nombre;
-	@ManyToMany(mappedBy = "preferencias")
-	private List<UsuarioEntity> usuarios;
+//	@ManyToMany(mappedBy = "preferencias")
+//	private List<UsuarioEntity> usuarios;
 	
 	public PreferenciaEntity() {}
 
@@ -49,4 +46,13 @@ public class PreferenciaEntity {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+//	public List<UsuarioEntity> getUsuarios() {
+//		return usuarios;
+//	}
+//
+//	public void setUsuarios(List<UsuarioEntity> usuarios) {
+//		this.usuarios = usuarios;
+//	}
+	
 }

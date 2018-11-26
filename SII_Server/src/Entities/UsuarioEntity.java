@@ -48,6 +48,7 @@ public class UsuarioEntity {
             inverseJoinColumns = @JoinColumn(name = "idPreferencia")
         )
 	private List<PreferenciaEntity> preferencias;
+    
     @ManyToMany(cascade = { 
             CascadeType.PERSIST, 
             CascadeType.MERGE

@@ -23,5 +23,7 @@ public class ModuloCiudades {
 		return CiudadDao.getInstancia().buscarCiudadById(idCiudad);
 	}
 	
-	
+	public List<CiudadDTO> buscarCiudadesByPais(String pais) {
+		return CiudadDao.getInstancia().ciudadesByPais(pais);
+	}
 }

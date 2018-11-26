@@ -35,6 +35,7 @@ public class CiudadDao {
 		List<CiudadDTO> ciudadesDTO = new ArrayList<CiudadDTO>();
 		Session session = sf.openSession();
 		session.beginTransaction();
+		@SuppressWarnings("unchecked")
 		List<CiudadEntity> ciudadesEntity = (List<CiudadEntity>) session
 				.createQuery("from CiudadEntity c").list();
 		session.getTransaction().commit();
@@ -48,7 +49,6 @@ public class CiudadDao {
 	}
 	
 	public CiudadDTO buscarCiudadById(int idCiudad) {
-		List<CiudadDTO> ciudadesDTO = new ArrayList<CiudadDTO>();
 		Session session = sf.openSession();
 		session.beginTransaction();
 		CiudadEntity ciudadEntity = (CiudadEntity) session
@@ -59,6 +59,23 @@ public class CiudadDao {
 		
 		return toDTO(ciudadEntity);
 	}
+	
+	public List<CiudadDTO> ciudadesByPais(String pais){
+		List<CiudadDTO> ciudadesDTO = new ArrayList<CiudadDTO>();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<CiudadEntity> ciudadesEntity = (List<CiudadEntity>) session
+				.createQuery("from CiudadEntity c where c.pais = :pais").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		for(CiudadEntity ciudad : ciudadesEntity) {
+			ciudadesDTO.add(toBasicDTO(ciudad));
+		}
+		
+		return ciudadesDTO;
+	} 
 	
 	public CiudadDTO toBasicDTO(CiudadEntity entity) {
 		CiudadDTO ciudad = new CiudadDTO();
