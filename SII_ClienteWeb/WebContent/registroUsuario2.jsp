@@ -1,4 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="DTO.CiudadDTO"%>
+<%@ page import="DTO.IdiomaDTO"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Iterator"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +26,6 @@
 body {
 	padding-top: 54px;
 }
-
 @media ( min-width : 992px) {
 	body {
 		padding-top: 56px;
@@ -55,6 +58,12 @@ body {
 	</div>
 	<%
 		}
+
+	%>
+	
+	<% List<CiudadDTO> ciudades= (List<CiudadDTO>)request.getAttribute("ciudades");
+	List<IdiomaDTO> idiomas = (List<IdiomaDTO>)request.getAttribute("idiomas");
+	
 	%>
 
 
@@ -116,61 +125,80 @@ body {
 				<div class="form-row">
 
 					<label for="validationServer01">¿Cómo te presentarías?</label>
-					<textarea class="form-control" name="presentacion"
+					<textarea class="form-control" name="presentacion" id="presentacion"
 						id="exampleFormControlTextarea1" rows="3"></textarea>
 
 
 				</div>
+				
+				
 				<div class="form-row">
 					<div class="col-md-6 mb-3">
+					<br>
 						<label for="validationServer03">¿Qué ciudades visitaste?</label>
 
 						<div class="form-row" id="ciudad">
-							<input class="form-control" name="ciudad_visitada1" id="paises"
-								list="json-paises" placeholder="Escribe el nombre de una ciudad" />
-							<datalist id="json-paises">
-								<c:forEach items="${ciudades}" var="ciudad">
-									<option value="${ciudad.nombre}">
-								</c:forEach>
-							</datalist>
+						    <select name="ciudades_visitadas" id="ciudades_visitadas" class="form-control"  multiple="multiple">
+								<%if (ciudades != null) { 
+									CiudadDTO ciudad= null;
+									for (Iterator<CiudadDTO> i = ciudades.iterator(); i.hasNext();) {
+										ciudad = i.next();
+										if (ciudad.getIdCiudad() == 1){
+								%>
+									<option selected value=<%=ciudad.getIdCiudad()%>><%=ciudad.getNombre() + ", " + ciudad.getPais()%></option>
+								<%}else {%>
+									<option value=<%=ciudad.getIdCiudad()%>><%=ciudad.getNombre() + ", " + ciudad.getPais()%></option>
+								<%}} }%>
+							</select>
+						
 						</div>
-						<br>
-						<div class="form-row" id="ciudad">
-							<input class="form-control" name="ciudad_visitada2" id="paises"
-								list="json-paises" placeholder="Escribe el nombre de una ciudad" />
-							<datalist id="json-paises"></datalist>
-						</div>
-						<br>
-						<div class="form-row" id="ciudad">
-							<input class="form-control" name="ciudad_visitada3" id="paises"
-								list="json-paises" placeholder="Escribe el nombre de una ciudad" />
-							<datalist id="json-paises"></datalist>
-						</div>
+						 
 					</div>
 				</div>
+				
+					<div class="form-row">
+					<div class="col-md-6 mb-3">
+					<br>
+						<label for="validationServer03">¿Qué ciudades te gustaría conocer?</label>
+
+						<div class="form-row" id="ciudad2">
+						    <select name="ciudades_deseadas" id="ciudades_deseadas" class="form-control"  multiple="multiple">
+								<%if (ciudades != null) { 
+									CiudadDTO ciudad= null;
+									for (Iterator<CiudadDTO> i = ciudades.iterator(); i.hasNext();) {
+										ciudad = i.next();
+										if (ciudad.getIdCiudad() == 1){
+								%>
+									<option selected value=<%=ciudad.getIdCiudad()%>><%=ciudad.getNombre() + ", " + ciudad.getPais()%></option>
+								<%}else {%>
+									<option value=<%=ciudad.getIdCiudad()%>><%=ciudad.getNombre() + ", " + ciudad.getPais()%></option>
+								<%}} }%>
+							</select>
+						
+						</div>
+						 
+					</div>
+				</div>
+				
 				<div class="form-row">
 					<div class="col-md-6 mb-3">
 						<label for="validationServer03">¿Qué idiomas hablás?</label>
-						<div class="form-row" id="ciudad">
-							<input class="form-control" name="ciudad_deseada1" id="paises"
-								list="json-paises" placeholder="Escribe el nombre de una ciudad" />
-							<datalist id="json-paises">
-								<option value="Franquito">
-								<option value="prueba">
-							</datalist>
+						<div class="form-row" id="idiomas">
+						    <select name="idiomas_habla" id="idiomas_habla" class="form-control"  multiple="multiple">
+								<%if (idiomas != null) { 
+									IdiomaDTO idioma= null;
+									for (Iterator<IdiomaDTO> i = idiomas.iterator(); i.hasNext();) {
+										idioma = i.next();
+										if (idioma.getIdIdioma() == 1){
+								%>
+									<option selected value=<%=idioma.getIdIdioma() %>><%=idioma.getDescripcion()%></option>
+								<%}else {%>
+									<option value=<%=idioma.getIdIdioma() %>><%=idioma.getDescripcion() %></option>
+								<%}} }%>
+							</select>
+						
 						</div>
 						<br>
-						<div class="form-row" id="ciudad">
-							<input class="form-control" name="ciudad_deseada2" id="paises"
-								list="json-paises" placeholder="Escribe el nombre de una ciudad" />
-							<datalist id="json-paises"></datalist>
-						</div>
-						<br>
-						<div class="form-row" id="ciudad">
-							<input class="form-control" name="ciudad_deseada3" id="paises"
-								list="json-paises" placeholder="Escribe el nombre de una ciudad" />
-							<datalist id="json-paises"></datalist>
-						</div>
 					</div>
 				</div>
 
@@ -186,6 +214,9 @@ body {
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="/SII_ClienteWeb/vendor/jquery/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="/SII_ClienteWeb/dist/js/BsMultiSelect.js"></script>
+	<script>$("select").bsMultiSelect();</script>
 	<script
 		src="/SII_ClienteWeb/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- 	<script src="/SII_ClienteWeb/js/cargaCiudades.js"></script> -->

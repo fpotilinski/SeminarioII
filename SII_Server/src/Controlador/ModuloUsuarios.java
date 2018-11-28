@@ -31,6 +31,8 @@ public class ModuloUsuarios {
 	}
 	
 	public void registrarUsuario(UsuarioDTO usuario) {
+		UsuarioDao.getInstancia().save(usuario);
+		/*
 		List<Ciudad> ciudadesDeseadas = new ArrayList<Ciudad>();
 		List<Ciudad> ciudadesVisitadas = new ArrayList<Ciudad>();
 		List<Preferencia> preferencias = new ArrayList<Preferencia>();
@@ -53,10 +55,15 @@ public class ModuloUsuarios {
 				usuario.getPresentacion(), preferencias, ciudadesVisitadas, ciudadesDeseadas, null, CiudadDao.getInstancia().toNegocio(usuario.getCiudadResidencia()), idiomas);
 		
 		usuarioNegocio.save();
-
+		*/
 	}
 	
 	public List<PreferenciaDTO> listadoPreferencias(){
 		return PreferenciaDao.getInstancia().listadoPreferencias();
 	}
+	
+	public List<IdiomaDTO> listadoIdiomas(){
+		return IdiomaDao.getInstancia().listadoIdiomas();
+	}
+	
 }

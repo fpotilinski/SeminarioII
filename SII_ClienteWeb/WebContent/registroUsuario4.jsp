@@ -129,6 +129,7 @@
     
     </div>
     </div>
+     <input type="hidden" name="action" value="registroFinalizado">
   <button class="btn btn-dark" type="submit">¡Finalizar!</button>
 </form>
 </div>

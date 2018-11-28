@@ -46,13 +46,4 @@ public class PreferenciaEntity {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-//	public List<UsuarioEntity> getUsuarios() {
-//		return usuarios;
-//	}
-//
-//	public void setUsuarios(List<UsuarioEntity> usuarios) {
-//		this.usuarios = usuarios;
-//	}
-	
 }

@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 
 import DTO.PreferenciaDTO;
 import DTO.UsuarioDTO;
+import Entities.CiudadEntity;
 import Entities.PreferenciaEntity;
 import Entities.UsuarioEntity;
 import Hibernate.HibernateUtil;
@@ -40,6 +41,18 @@ public class PreferenciaDao {
 		}
 		
 		return preferenciasDTO;
+	}
+	
+	public PreferenciaEntity buscarPreferenciaByIdEntity(int idPreferencia) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		PreferenciaEntity preferenciaEntity = (PreferenciaEntity) session
+				.createQuery("from PreferenciaEntity c where c.idPreferencia = :idPreferencia")
+				.setParameter("idPreferencia", idPreferencia).uniqueResult();
+		session.getTransaction().commit();
+		session.close();
+		
+		return preferenciaEntity;
 	}
 	
 	public PreferenciaDTO toDTO(PreferenciaEntity preferencia) {

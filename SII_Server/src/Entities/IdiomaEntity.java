@@ -22,14 +22,8 @@ public class IdiomaEntity {
 	private Integer idIdioma;
 	@Column(name="descripcion")
 	private String descripcion;
-    @ManyToMany(cascade = { 
-            CascadeType.PERSIST, 
-            CascadeType.MERGE
-        })
-        @JoinTable(name = "Usuario_Idioma",
-            joinColumns = @JoinColumn(name = "idUsuario"),
-            inverseJoinColumns = @JoinColumn(name = "idIdioma")
-        )
+
+	@ManyToMany(mappedBy = "idiomas")
     private List<UsuarioEntity> usuarios;
 
 	public IdiomaEntity() {}

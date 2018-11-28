@@ -2,11 +2,13 @@ package Remoto;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Date;
 import java.util.List;
 
 import Controlador.ModuloCiudades;
 import Controlador.ModuloUsuarios;
 import DTO.CiudadDTO;
+import DTO.IdiomaDTO;
 import DTO.PreferenciaDTO;
 import DTO.UsuarioDTO;
 import Interfaces.InterfazRemota;
@@ -44,11 +46,19 @@ public class ObjetoRemoto extends UnicastRemoteObject implements InterfazRemota{
 		return ModuloCiudades.getInstancia().listarCiudades();
 	}
 	
+	public List<IdiomaDTO> listadoIdiomas() throws RemoteException{
+		return ModuloUsuarios.getInstancia().listadoIdiomas();
+	}
+	
 	public CiudadDTO buscarCiudadById(int idCiudad) throws RemoteException{
 		return ModuloCiudades.getInstancia().buscarCiudadById(idCiudad);
 	}
 	
 	public void registrarUsuario(UsuarioDTO usuario) {
 		ModuloUsuarios.getInstancia().registrarUsuario(usuario);
+	}
+	
+	public CiudadDTO buscarCiudadByIdFechas(int idCiudad, Date fechaIda, Date fechaVuelta) throws RemoteException{
+		return ModuloCiudades.getInstancia().buscarCiudadByIdFechas(idCiudad, fechaIda, fechaVuelta);
 	}
 }

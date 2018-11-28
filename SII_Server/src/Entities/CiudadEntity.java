@@ -37,12 +37,38 @@ public class CiudadEntity {
             inverseJoinColumns = @JoinColumn(name = "idImagen")
         )
 	private List<ImagenEntity> imagenes;
-	@ManyToMany(mappedBy = "ciudadesVisitadas")
-	private List<UsuarioEntity> visitantes;
+   
 	@ManyToMany(mappedBy = "ciudadesDeseadas")
 	private List<UsuarioEntity> deseados;
 	
+    @ManyToMany(cascade = { 
+            CascadeType.PERSIST, 
+            CascadeType.MERGE
+        })
+        @JoinTable(name = "Ciudad_Itinerario",
+            joinColumns = @JoinColumn(name = "idCiudad"),
+            inverseJoinColumns = @JoinColumn(name = "idItinerario")
+        )
+	private List<ItinerarioEntity> itinerarios;
+	
+	@OneToMany(mappedBy = "ciudadResidencia")
+	private List<UsuarioEntity> residentes;
+	
 	public CiudadEntity() {}
+	
+	
+
+	public List<UsuarioEntity> getResidentes() {
+		return residentes;
+	}
+
+
+
+	public void setResidentes(List<UsuarioEntity> residentes) {
+		this.residentes = residentes;
+	}
+
+
 
 	public Integer getIdCiudad() {
 		return idCiudad;
@@ -84,14 +110,6 @@ public class CiudadEntity {
 		this.imagenes = imagenes;
 	}
 
-	public List<UsuarioEntity> getVisitantes() {
-		return visitantes;
-	}
-
-	public void setVisitantes(List<UsuarioEntity> visitantes) {
-		this.visitantes = visitantes;
-	}
-
 	public List<UsuarioEntity> getDeseados() {
 		return deseados;
 	}
@@ -99,6 +117,16 @@ public class CiudadEntity {
 	public void setDeseados(List<UsuarioEntity> deseados) {
 		this.deseados = deseados;
 	}
+
+	public List<ItinerarioEntity> getItinerarios() {
+		return itinerarios;
+	}
+
+	public void setItinerarios(List<ItinerarioEntity> itinerarios) {
+		this.itinerarios = itinerarios;
+	}
+	
+	
 	
 	
 

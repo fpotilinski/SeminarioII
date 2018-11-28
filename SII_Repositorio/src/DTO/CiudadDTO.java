@@ -11,7 +11,17 @@ public class CiudadDTO implements Serializable{
 	private List<ImagenDTO> imagenes;
 	private List<UsuarioDTO> visitantes;
 	private List<UsuarioDTO> deseados;
+	private List<ItinerarioDTO> itinerarios;
+	private List<UsuarioDTO> residentes;
 	
+	public List<ItinerarioDTO> getItinerarios() {
+		return itinerarios;
+	}
+
+	public void setItinerarios(List<ItinerarioDTO> itinerarios) {
+		this.itinerarios = itinerarios;
+	}
+
 	public CiudadDTO() {}
 
 	public int getIdCiudad() {
@@ -74,6 +84,15 @@ public class CiudadDTO implements Serializable{
 		this.idCiudad = idCiudad;
 	}
 
+	public List<UsuarioDTO> getResidentes() {
+		return residentes;
+	}
+
+	public void setResidentes(List<UsuarioDTO> residentes) {
+		this.residentes = residentes;
+	}
+
+	
 	
 	
 	

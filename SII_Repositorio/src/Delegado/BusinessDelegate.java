@@ -2,9 +2,11 @@ package Delegado;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.util.Date;
 import java.util.List;
 
 import DTO.CiudadDTO;
+import DTO.IdiomaDTO;
 import DTO.PreferenciaDTO;
 import DTO.UsuarioDTO;
 import Interfaces.InterfazRemota;
@@ -46,6 +48,14 @@ public class BusinessDelegate {
 	
 	public void registrarUsuario(UsuarioDTO usuario) throws RemoteException{
 		ir.registrarUsuario(usuario);
+	}
+	
+	public CiudadDTO buscarCiudadByIdFechas(int idCiudad, Date fechaIda, Date fechaVuelta) throws RemoteException{
+		return ir.buscarCiudadByIdFechas(idCiudad, fechaIda, fechaVuelta);
+	}
+	
+	public List<IdiomaDTO> listadoIdiomas() throws RemoteException{
+		return ir.listadoIdiomas();
 	}
 
 }

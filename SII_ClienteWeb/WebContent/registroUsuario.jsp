@@ -1,3 +1,7 @@
+<%@ page import="DTO.CiudadDTO"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Iterator"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,6 +56,9 @@
 			<%
 				}
 			%>
+			
+			
+			<%	List<CiudadDTO> ciudades = (List<CiudadDTO>)request.getAttribute("ciudades"); %>
   
   	     	
     <!-- Navigation -->
@@ -120,11 +127,11 @@
 			  <div class="form-row">
 			    <div class="col-md-4 mb-3">
 			      <label for="validationServer01">Email</label>
-			      <input type="text" class="form-control" id="email" required>
+			      <input type="text" class="form-control" id="email" name="email" required>
 			    </div>
 			    <div class="col-md-4 mb-3">
 			      <label for="validationServer02">Contraseña</label>
-			      <input type="password" class="form-control" id="password"  required>
+			      <input type="password" class="form-control" id="password" name="password"  required>
 			    </div>
 			    <div class="col-md-4 mb-3">
 			      <label for="validationServerUsername">Usuario</label>
@@ -139,28 +146,41 @@
 			  <div class="form-row">
 			    <div class="col-md-6 mb-3">
 			      <label for="validationServer03">Nombre</label>
-			      <input type="text" class="form-control" id="validationServer03"required>
+			      <input type="text" class="form-control" id="nombre" name="nombre" required>
 			    </div>
 			    <div class="col-md-3 mb-3">
 			      <label for="validationServer04">Apellido</label>
-			      <input type="text" class="form-control" id="validationServer04" required>
+			      <input type="text" class="form-control" id="apellido" name="apellido" required>
 			    </div>
 			    <div class="col-md-3 mb-3">
 			      <label for="validationServer05">Fecha de Nacimiento</label>
-			      <input type="date" class="form-control" id="validationServer05" required>
+			      <input type="date" class="form-control" id="fch_nac" name="fch_nac" required>
 			    </div>
 			  </div>
 			  	<div class="form-row">
 			    <div class="col-md-6 mb-3">
 			      <label for="validationServer03">¿En qué ciudad vivís?</label>
-			      <input class="form-control" id="paises" name="ciudad" list="json-paises"  required />
-				  <datalist id="json-paises"></datalist>
+							<div class="form-row" id="ciudad">
+						    <select name="ciudad_residencia" id="ciudad_residencia" class="form-control">
+								<%if (ciudades != null) { 
+									CiudadDTO ciudad= null;
+									for (Iterator<CiudadDTO> i = ciudades.iterator(); i.hasNext();) {
+										ciudad = i.next();
+										if (ciudad.getIdCiudad() == 1){
+								%>
+									<option selected value=<%=ciudad.getIdCiudad()%>><%=ciudad.getNombre() + ", " + ciudad.getPais()%></option>
+								<%}else {%>
+									<option value=<%=ciudad.getIdCiudad()%>><%=ciudad.getNombre() + ", " + ciudad.getPais()%></option>
+								<%}} }%>
+							</select>
+						
+						</div>
 			    </div>
 			  </div>
 			  <div class="form-row">
 			    <div class="col-md-6 mb-3">
 			      <label for="validationServer03">¿A qué te dedicás?</label>
-			      <input type="text" class="form-control" id="validationServer04" required>
+			      <input type="text" class="form-control" id="ocupacion" name="ocupacion" required>
 			    </div>
 			  </div>
 			  <input type="hidden" name="action" value="registroUsuario2">

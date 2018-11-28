@@ -48,7 +48,6 @@ public class UsuarioEntity {
             inverseJoinColumns = @JoinColumn(name = "idPreferencia")
         )
 	private List<PreferenciaEntity> preferencias;
-    
     @ManyToMany(cascade = { 
             CascadeType.PERSIST, 
             CascadeType.MERGE
@@ -73,10 +72,19 @@ public class UsuarioEntity {
 	
 	@ManyToMany(mappedBy = "invitados")
 	private List<ItinerarioEntity> itinerariosInvitado;
+	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="ciudadResidencia")
 	private CiudadEntity ciudadResidencia;
-	@ManyToMany(mappedBy = "usuarios")
+	
+    @ManyToMany(cascade = { 
+            CascadeType.PERSIST, 
+            CascadeType.MERGE
+        })
+        @JoinTable(name = "Usuario_Idioma",
+            joinColumns = @JoinColumn(name = "idUsuario"),
+            inverseJoinColumns = @JoinColumn(name = "idIdioma")
+        )
 	private List<IdiomaEntity> idiomas;
 	
     @ManyToMany(cascade = { 
@@ -196,6 +204,40 @@ public class UsuarioEntity {
 	public void setCiudadResidencia(CiudadEntity ciudadResidencia) {
 		this.ciudadResidencia = ciudadResidencia;
 	}
+
+	public List<ItinerarioEntity> getItinerariosPropios() {
+		return itinerariosPropios;
+	}
+
+	public void setItinerariosPropios(List<ItinerarioEntity> itinerariosPropios) {
+		this.itinerariosPropios = itinerariosPropios;
+	}
+
+	public List<ItinerarioEntity> getItinerariosInvitado() {
+		return itinerariosInvitado;
+	}
+
+	public void setItinerariosInvitado(List<ItinerarioEntity> itinerariosInvitado) {
+		this.itinerariosInvitado = itinerariosInvitado;
+	}
+
+	public List<IdiomaEntity> getIdiomas() {
+		return idiomas;
+	}
+
+	public void setIdiomas(List<IdiomaEntity> idiomas) {
+		this.idiomas = idiomas;
+	}
+
+	public List<ChatEntity> getChats() {
+		return chats;
+	}
+
+	public void setChats(List<ChatEntity> chats) {
+		this.chats = chats;
+	}
+	
+	
 
 
 }

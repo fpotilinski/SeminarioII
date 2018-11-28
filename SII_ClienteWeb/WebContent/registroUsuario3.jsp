@@ -1,4 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="DTO.PreferenciaDTO"%>
+<%@ page import="java.util.HashSet"%>
+<%@ page import="java.util.Set"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +31,6 @@
           padding-top: 56px;
         }
       }
-
     </style>
 
   </head>
@@ -53,6 +58,10 @@
 			</div>
 			<%
 				}
+			%>
+			
+			<%Set<String> tipos_preferencias = (HashSet<String>)request.getAttribute("tipos_preferencias"); 
+			List<PreferenciaDTO> preferencias = (List<PreferenciaDTO>)request.getAttribute("preferencias");
 			%>
   
   	     	
@@ -120,133 +129,35 @@
           </div>
           <div class="shadow-sm p-3 mb-5 bg-white rounded">
           <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="registroUsuario4">
-			  <div class="form-row">
-			  <div class="col-md-6 mb-3">
-			  <label for="validationServer03"><b>Mi estilo de viaje es...</b></label></br>
-				<c:forEach items="${estilos}" var="estilo">
-					<div class="form-check form-check-inline">
-				  		<input class="form-check-input" type="checkbox" id="${estilo.idPreferencia}" value="${estilo.nombre}">
-				  		<label class="form-check-label" for="${estilo.idPreferencia}">${estilo.nombre}</label>
-					</div>
-				</c:forEach>
-				
-				
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox1">Relax</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox2">Aventura</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Diversión</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Descubrimiento</label> -->
-<!-- 				</div> -->
-			  </div>
 			  
-			  <div class="col-md-6 mb-3">
-			  <label for="validationServer03"><b>Preferencias...</b></label></br>
-				<c:forEach items="${lugares}" var="lugar">
-					<div class="form-check form-check-inline">
-				  		<input class="form-check-input" type="checkbox" id="${lugar.idPreferencia}" value="${lugar.nombre}">
-				  		<label class="form-check-label" for="${lugar.idPreferencia}">${lugar.nombre}</label>
-					</div>
-				</c:forEach>
-				
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox1">Playa</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox2">Montaña</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Selva</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Ciudad</label> -->
-<!-- 				</div> -->
-			  </div>
-			  </div>
 			  <div class="form-row">
-			  <div class="col-md-6 mb-3">
-			  <label for="validationServer03"><b>Me interesa...</b></label></br>
-				<c:forEach items="${actividades}" var="actividad">
-					<div class="form-check form-check-inline">
-				  		<input class="form-check-input" type="checkbox" id="${actividad.idPreferencia}" value="${actividad.nombre}">
-				  		<label class="form-check-label" for="${actividad.idPreferencia}">${actividad.nombre}</label>
-					</div>
-				</c:forEach>
-				
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox1">Gastronomia</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox2">Historia y Cultura</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Pubs & Parties</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Free walking tours</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Tours organizados</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Conocer gente nueva</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Actividades grupales</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Shopping</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Cine</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Música</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Deportes extremos</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Museos</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Playa y cruceros</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Turismo Mítico</label> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-check form-check-inline"> -->
-<!-- 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> -->
-<!-- 				  <label class="form-check-label" for="inlineCheckbox3">Aire libre y naturaleza</label> -->
-<!-- 				</div> -->
-			  </div>
+			  
+			  <%if (tipos_preferencias != null) { 
+					String tipo_preferencia = null;
+					for (Iterator<String> i = tipos_preferencias.iterator(); i.hasNext();) {
+						tipo_preferencia = i.next();
+			  %>
+			  			<div class="col-md-6 mb-3">
+			  			<label for="validationServer03"><b><%=tipo_preferencia%></b></label></br>
+			  			<select name=<%=tipo_preferencia%> id=<%=tipo_preferencia%> class="form-control"  multiple="multiple">
+								<%if (preferencias != null) { 
+									PreferenciaDTO preferencia = null;
+									for (Iterator<PreferenciaDTO> o = preferencias.iterator(); o.hasNext();) {
+										preferencia = o.next();
+										if(preferencia.getTipo().equals(tipo_preferencia)){
+								%> 
+											<option value=<%=preferencia.getIdPreferencia()%>><%=preferencia.getNombre()%></option>
+											
+										<%}
+									}
+								}%>
+						</select>
+						</div>
+				<%} 
+			} %>
+			  
+	
+			 
 			  </div>
             <input type="hidden" name="action" value="registroUsuario4">
             <input type="submit" class="btn btn-dark" align=center name="registroUsuario4" value="¡Siguiente paso!">
@@ -260,6 +171,9 @@
  
     <!-- Bootstrap core JavaScript -->
     <script src="/SII_ClienteWeb/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="/SII_ClienteWeb/dist/js/BsMultiSelect.js"></script>
+	<script>$("select").bsMultiSelect();</script>
     <script src="/SII_ClienteWeb/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/SII_ClienteWeb/js/cargaCiudades.js"></script>
   </body>

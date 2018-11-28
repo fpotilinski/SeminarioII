@@ -22,9 +22,10 @@ public class ItinerarioEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idItinerario")
 	private Integer idItinerario;
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="idCiudad")
-	private CiudadEntity ciudad;
+	
+	@ManyToMany(mappedBy = "itinerarios")
+	private List<CiudadEntity> ciudades;
+	
 	@Column(name="fechaDesde")
 	private Date fechaDesde;
 	@Column(name="fechaHasta")
@@ -32,13 +33,14 @@ public class ItinerarioEntity {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="idUsuario")
 	private UsuarioEntity usuarioAdministrador;
+
     @ManyToMany(cascade = { 
             CascadeType.PERSIST, 
             CascadeType.MERGE
         })
-        @JoinTable(name = "Usuario_Itinerario",
-            joinColumns = @JoinColumn(name = "idUsuario"),
-            inverseJoinColumns = @JoinColumn(name = "idItinerario")
+        @JoinTable(name = "Itinerario_Invitados",
+            joinColumns = @JoinColumn(name = "idItinerario"),
+            inverseJoinColumns = @JoinColumn(name = "idUsuario")
         )
 	private List<UsuarioEntity> invitados;
 	@Column(name="descripcion")
@@ -54,12 +56,13 @@ public class ItinerarioEntity {
 		this.idItinerario = idItinerario;
 	}
 
-	public CiudadEntity getCiudad() {
-		return ciudad;
+
+	public List<CiudadEntity> getCiudades() {
+		return ciudades;
 	}
 
-	public void setCiudad(CiudadEntity ciudad) {
-		this.ciudad = ciudad;
+	public void setCiudades(List<CiudadEntity> ciudades) {
+		this.ciudades = ciudades;
 	}
 
 	public Date getFechaDesde() {

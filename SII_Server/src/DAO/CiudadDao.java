@@ -1,6 +1,7 @@
 package DAO;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -8,9 +9,11 @@ import org.hibernate.SessionFactory;
 
 import DTO.CiudadDTO;
 import DTO.ImagenDTO;
+import DTO.ItinerarioDTO;
 import DTO.UsuarioDTO;
 import Entities.CiudadEntity;
 import Entities.ImagenEntity;
+import Entities.ItinerarioEntity;
 import Entities.UsuarioEntity;
 import Hibernate.HibernateUtil;
 import Negocio.Ciudad;
@@ -49,6 +52,7 @@ public class CiudadDao {
 	}
 	
 	public CiudadDTO buscarCiudadById(int idCiudad) {
+		List<CiudadDTO> ciudadesDTO = new ArrayList<CiudadDTO>();
 		Session session = sf.openSession();
 		session.beginTransaction();
 		CiudadEntity ciudadEntity = (CiudadEntity) session
@@ -60,27 +64,67 @@ public class CiudadDao {
 		return toDTO(ciudadEntity);
 	}
 	
-	public List<CiudadDTO> ciudadesByPais(String pais){
-		List<CiudadDTO> ciudadesDTO = new ArrayList<CiudadDTO>();
+	public CiudadEntity buscarCiudadByIdEntity(int idCiudad) {
 		Session session = sf.openSession();
 		session.beginTransaction();
-		@SuppressWarnings("unchecked")
-		List<CiudadEntity> ciudadesEntity = (List<CiudadEntity>) session
-				.createQuery("from CiudadEntity c where c.pais = :pais").list();
+		CiudadEntity ciudadEntity = (CiudadEntity) session
+				.createQuery("from CiudadEntity c where c.idCiudad = :idCiudad")
+				.setParameter("idCiudad", idCiudad).uniqueResult();
 		session.getTransaction().commit();
 		session.close();
 		
-		for(CiudadEntity ciudad : ciudadesEntity) {
-			ciudadesDTO.add(toBasicDTO(ciudad));
+		return ciudadEntity;
+	}
+	
+	public CiudadDTO buscarCiudadByIdFechas(int idCiudad, Date fechaIda, Date fechaVuelta) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		CiudadEntity ciudadEntity = (CiudadEntity) session
+				.createQuery("from CiudadEntity c where c.idCiudad = :idCiudad")
+				.setParameter("idCiudad", idCiudad).uniqueResult();
+		session.getTransaction().commit();
+		//session.close();
+		
+		
+		CiudadDTO ciudad = new CiudadDTO();
+		
+		ciudad.setIdCiudad(ciudadEntity.getIdCiudad());
+		List<ImagenDTO> imagenes = new ArrayList<ImagenDTO>();
+		for(ImagenEntity imagen : ciudadEntity.getImagenes()) {
+			imagenes.add(ImagenDao.getInstancia().toDTO(imagen));
+		}
+		ciudad.setImagenes(imagenes);
+		ciudad.setInformacion(ciudadEntity.getInformacion());
+		ciudad.setNombre(ciudadEntity.getNombre());
+		ciudad.setPais(ciudadEntity.getPais());
+		List<ItinerarioDTO> itinerarios = new ArrayList<ItinerarioDTO>();
+		for(ItinerarioEntity itinerario : ciudadEntity.getItinerarios()) {
+			//if (itinerario.getFechaDesde().before(fechaIda) && itinerario.getFechaHasta().after(fechaVuelta)) {
+				itinerarios.add(ItinerarioDao.getInstancia().toDTO(itinerario));
+			//}
+		}
+		ciudad.setItinerarios(itinerarios);
+		
+		List<UsuarioDTO> usuariosWishList = new ArrayList<UsuarioDTO>();
+		for(UsuarioEntity usuario : ciudadEntity.getDeseados()) {
+			usuariosWishList.add(UsuarioDao.getInstancia().toDTO(usuario));
 		}
 		
-		return ciudadesDTO;
-	} 
+		List<UsuarioDTO> residentes = new ArrayList<UsuarioDTO>();
+		for(UsuarioEntity usuario : ciudadEntity.getResidentes()) {
+			residentes.add(UsuarioDao.getInstancia().toDTO(usuario));
+		}
+		ciudad.setResidentes(residentes);
+		ciudad.setDeseados(usuariosWishList);
+		session.close();
+		return ciudad;
+	}
 	
 	public CiudadDTO toBasicDTO(CiudadEntity entity) {
 		CiudadDTO ciudad = new CiudadDTO();
 		ciudad.setIdCiudad(entity.getIdCiudad());
 		ciudad.setNombre(entity.getNombre());
+		ciudad.setPais(entity.getPais());
 		return ciudad;
 	}
 	
@@ -119,4 +163,22 @@ public class CiudadDao {
 		return new Ciudad(ciudad.getIdCiudad(), ciudad.getNombre(),
 				ciudad.getPais(), ciudad.getInformacion(), imagenes);
 	}
+	
+	public List<CiudadDTO> ciudadesByPais(String pais){
+		List<CiudadDTO> ciudadesDTO = new ArrayList<CiudadDTO>();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<CiudadEntity> ciudadesEntity = (List<CiudadEntity>) session
+				.createQuery("from CiudadEntity c where c.pais = :pais").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		for(CiudadEntity ciudad : ciudadesEntity) {
+			ciudadesDTO.add(toBasicDTO(ciudad));
+		}
+		
+		return ciudadesDTO;
+	} 
+	
 }

@@ -1,9 +1,17 @@
 package DAO;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import DTO.CiudadDTO;
+import DTO.IdiomaDTO;
+import DTO.PreferenciaDTO;
 import DTO.UsuarioDTO;
+import Entities.CiudadEntity;
+import Entities.IdiomaEntity;
+import Entities.PreferenciaEntity;
 import Entities.UsuarioEntity;
 import Hibernate.HibernateUtil;
 import Negocio.Usuario;
@@ -21,6 +29,56 @@ public class UsuarioDao {
 			instancia = new UsuarioDao();
 		}
 		return instancia;
+	}
+	
+	public void save(UsuarioDTO usuario) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		UsuarioEntity usuarioEntity = new UsuarioEntity();
+		usuarioEntity.setApellido(usuario.getApellido());
+		usuarioEntity.setAvatar(usuario.getAvatar());
+		usuarioEntity.setEmail(usuario.getEmail());
+		usuarioEntity.setFechaNacimiento(usuario.getFechaNacimiento());
+		usuarioEntity.setIdUsuario(usuario.getIdUsuario());
+		usuarioEntity.setNombre(usuario.getNombre());
+		usuarioEntity.setPassword(usuario.getPassword());
+		usuarioEntity.setPresentacion(usuario.getPresentacion());
+		usuarioEntity.setSexo("M");
+		List<CiudadEntity> ciudadesDeseadas = new ArrayList<CiudadEntity>();
+		for(CiudadDTO ciudad : usuario.getCiudadesDeseadas()) {
+			int idCiudad = ciudad.getIdCiudad();
+			CiudadEntity ciudadEntity = CiudadDao.getInstancia().buscarCiudadByIdEntity(idCiudad);
+			ciudadesDeseadas.add(ciudadEntity);
+		}
+		usuarioEntity.setCiudadesDeseadas(ciudadesDeseadas);
+		List<CiudadEntity> ciudadesVisitadas = new ArrayList<CiudadEntity>();
+		for(CiudadDTO ciudad : usuario.getCiudadesVisitadas()) {
+			int idCiudad = ciudad.getIdCiudad();
+			CiudadEntity ciudadEntity = CiudadDao.getInstancia().buscarCiudadByIdEntity(idCiudad);
+			ciudadesVisitadas.add(ciudadEntity);
+		}
+		usuarioEntity.setCiudadesVisitadas(ciudadesVisitadas);
+		int idCiudad = usuario.getCiudadResidencia().getIdCiudad();
+		CiudadEntity ciudadEntity = CiudadDao.getInstancia().buscarCiudadByIdEntity(idCiudad);
+		usuarioEntity.setCiudadResidencia(ciudadEntity);
+		List<IdiomaEntity> idiomas = new ArrayList<IdiomaEntity>();
+		for(IdiomaDTO idioma : usuario.getIdiomas()) {
+			int idIdioma = idioma.getIdIdioma();
+			IdiomaEntity idiomaEntity = IdiomaDao.getInstancia().buscarIdiomaByIdEntity(idIdioma);
+			idiomas.add(idiomaEntity);
+		}
+		usuarioEntity.setIdiomas(idiomas);
+		List<PreferenciaEntity> preferencias = new ArrayList<PreferenciaEntity>();
+		for(PreferenciaDTO preferencia : usuario.getPreferencias()){
+			int idPreferencia = preferencia.getIdPreferencia();
+			PreferenciaEntity preferenciaEntity = PreferenciaDao.getInstancia().buscarPreferenciaByIdEntity(idPreferencia);
+			preferencias.add(preferenciaEntity);
+		}
+		usuarioEntity.setPreferencias(preferencias);
+		session.save(usuarioEntity);
+		session.getTransaction().commit();
+		session.close();
 	}
 	
 	public UsuarioDTO loginUsuario(String email, String password) {
@@ -42,9 +100,6 @@ public class UsuarioDao {
 		
 	}
 	
-	public Usuario buscarUsuarioById(int idUsuario) {
-		
-	}
 
 	
 	public UsuarioDTO toDTO(UsuarioEntity usuario) {
@@ -73,4 +128,6 @@ public class UsuarioDao {
 		aux.setSexo(usuario.getSexo());
 		return aux;
 	}
+
+
 }
