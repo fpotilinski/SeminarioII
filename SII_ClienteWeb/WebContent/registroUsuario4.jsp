@@ -122,15 +122,14 @@
           </div>
           <div class="shadow-sm p-3 mb-5 bg-white rounded">
           
-<form>
+<form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios?action=registroFinalizado" method="post" id="registroFinalizado" enctype="multipart/form-data">
   <div class="form-row">
     <div class="col-md-4 mb-3">
     <input class="form-control" id="file_url" type="file" name="foto"> 
-    
     </div>
     </div>
-     <input type="hidden" name="action" value="registroFinalizado">
-  <button class="btn btn-dark" type="submit">¡Finalizar!</button>
+<input type="hidden" name="action" value="registroFinalizado">
+            <input type="submit" class="btn btn-dark" align=center name="registroFinalizado" value="¡Finalizar!">
 </form>
 </div>
           </ul>

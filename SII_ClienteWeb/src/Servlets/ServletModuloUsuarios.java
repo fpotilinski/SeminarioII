@@ -1,4 +1,5 @@
 package Servlets;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import DTO.CiudadDTO;
 import DTO.IdiomaDTO;
@@ -207,12 +215,65 @@ public class ServletModuloUsuarios extends HttpServlet{
 									UsuarioDTO usuario = new UsuarioDTO();
 									usuario = (UsuarioDTO) session.getAttribute("usuario");
 									
-									usuario.setAvatar("/SII_ClienteWeb/descarga.png");
+
+									
+									DiskFileItemFactory factory = new DiskFileItemFactory();
+									ServletFileUpload upload = new ServletFileUpload(factory);
+									
+									ServletContext servletContext = this.getServletConfig().getServletContext();
+									File repository = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
+									factory.setRepository(repository);
+
+
+									// req es la HttpServletRequest que recibimos del formulario.
+									// Los items obtenidos serán cada uno de los campos del formulario,
+									// tanto campos normales como ficheros subidos.
+									List items;
+									try {
+										items = upload.parseRequest(request);
+										String avatar = null;
+										// Se recorren todos los items, que son de tipo FileItem
+										for (Object item : items) {
+										   FileItem uploaded = (FileItem) item;
+
+										   // Hay que comprobar si es un campo de formulario. Si no lo es, se guarda el fichero
+										   // subido donde nos interese
+										   if (!uploaded.isFormField()) {
+										      // No es campo de formulario, guardamos el fichero en algún sitio
+										      File fichero = new File("C:/img", uploaded.getName());
+										      avatar = fichero.getPath();
+										      try {
+												uploaded.write(fichero);
+											} catch (Exception e) {
+												// TODO Auto-generated catch block
+												e.printStackTrace();
+											}
+										   } else {
+										      // es un campo de formulario, podemos obtener clave y valor
+										      String key = uploaded.getFieldName();
+										      String valor = uploaded.getString();
+										   }
+										   
+										}
+										
+										if (avatar != null) {
+											usuario.setAvatar(avatar);
+										}
+										
+										BusinessDelegate.getInstancia().registrarUsuario(usuario);
+										
+										dispatcher=request.getRequestDispatcher("/login.jsp");
+										dispatcher.forward(request, response);	
+
+									} catch (FileUploadException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+
+																		   
 									
 									
-									BusinessDelegate.getInstancia().registrarUsuario(usuario);
-									dispatcher=request.getRequestDispatcher("/registroFinalizado.jsp");
-									dispatcher.forward(request, response);	
+									
 								}else {
 									if(request.getParameter("action").equalsIgnoreCase("cancelarRegistro")) {
 										RequestDispatcher dispatcher;

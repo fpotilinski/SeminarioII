@@ -54,7 +54,7 @@ public class ObjetoRemoto extends UnicastRemoteObject implements InterfazRemota{
 		return ModuloCiudades.getInstancia().buscarCiudadById(idCiudad);
 	}
 	
-	public void registrarUsuario(UsuarioDTO usuario) {
+	public void registrarUsuario(UsuarioDTO usuario) throws RemoteException{
 		ModuloUsuarios.getInstancia().registrarUsuario(usuario);
 	}
 	

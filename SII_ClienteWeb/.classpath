@@ -9,7 +9,9 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SII_Repositorio"/>
-	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 8.0/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 8.0/lib/tomcat-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 8.5/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 8.5/lib/tomcat-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fpotilinski/Desktop/eclipse/lib/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fpotilinski/Desktop/eclipse/lib/commons-fileupload-1.3.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
