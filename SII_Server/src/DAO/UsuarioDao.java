@@ -112,6 +112,7 @@ public class UsuarioDao {
 		aux.setNombre(usuario.getNombre());
 		aux.setPassword(usuario.getPassword());
 		aux.setSexo(usuario.getSexo());
+	
 		return aux;
 	}
 
@@ -129,5 +130,13 @@ public class UsuarioDao {
 		return aux;
 	}
 
+	public UsuarioEntity getById(int id) {
+		Session session = sf.getCurrentSession();
+		session.beginTransaction();
+		UsuarioEntity result = (UsuarioEntity) session.get(UsuarioEntity.class, id);
+		session.getTransaction().commit();
+		return result;
+	}
+	
 
 }

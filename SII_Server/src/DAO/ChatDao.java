@@ -43,20 +43,20 @@ public class ChatDao {
 		ChatEntity aux = new ChatEntity();
 		aux.setIdChat(chat.getIdChat());
 		List<MensajeDTO> mensajesDto = chat.getMensajes();
-		List<UsuarioDTO> usuariosDto = chat.getUsuarios();
+//		List<UsuarioDTO> usuariosDto = chat.getUsuarios();
 		List<MensajeEntity> mensajes = new ArrayList<MensajeEntity>();
-		List<UsuarioEntity> usuarios = new ArrayList<UsuarioEntity>();
+//		List<UsuarioEntity> usuarios = new ArrayList<UsuarioEntity>();
 		
 		for (MensajeDTO m : mensajesDto) {
 			mensajes.add(MensajeDao.getInstancia().dtoToEntity(m));
 		}
-		for (UsuarioDTO u : usuariosDto) {
-			usuarios.add(UsuarioDao.getInstancia().dtoToEntity(u));
-		}
+//		for (UsuarioDTO u : usuariosDto) {
+//			usuarios.add(UsuarioDao.getInstancia().dtoToEntity(u));
+//		}
 		
 		aux.setMensajes(mensajes);
 		aux.setReferencia(chat.getReferencia());
-		aux.setUsuarios(usuarios);
+//		aux.setUsuarios(usuarios);
 		return aux;
 	}
 

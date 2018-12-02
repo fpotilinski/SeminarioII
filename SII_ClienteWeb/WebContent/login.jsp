@@ -128,6 +128,13 @@
         </div>
       </div>
     </div>
+    <form action="/SII_ClienteWeb/Servlets/ServletModuloUsuarios" method="post" id="loginUsuarios">
+            
+            <input type="hidden" name="action" value="chat">
+            <a class="btn btn-dark" href="/SII_ClienteWeb/Servlets/ServletModuloUsuarios?action=registroUsuario">¡Quiero registrarme!</a>
+            <input type="submit" class="btn btn-dark" align=center name="loginUsuarios" value="Ingresar">
+          
+            </form>
 
  
     <!-- Bootstrap core JavaScript -->

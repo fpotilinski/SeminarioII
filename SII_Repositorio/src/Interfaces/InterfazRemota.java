@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
+import DTO.ChatDTO;
 import DTO.CiudadDTO;
 import DTO.IdiomaDTO;
 import DTO.PreferenciaDTO;
@@ -21,5 +22,6 @@ public interface InterfazRemota extends Remote{
 	public void registrarUsuario(UsuarioDTO usuario) throws RemoteException;
 	public CiudadDTO buscarCiudadByIdFechas(int idCiudad, Date fechaIda, Date fechaVuelta) throws RemoteException;
 	public List<IdiomaDTO> listadoIdiomas() throws RemoteException;
+	public List<ChatDTO> listadoChats(UsuarioDTO usuario) throws RemoteException;
 	
 }

@@ -6,7 +6,9 @@ import java.util.Date;
 import java.util.List;
 
 import Controlador.ModuloCiudades;
+import Controlador.ModuloMensajeria;
 import Controlador.ModuloUsuarios;
+import DTO.ChatDTO;
 import DTO.CiudadDTO;
 import DTO.IdiomaDTO;
 import DTO.PreferenciaDTO;
@@ -60,5 +62,10 @@ public class ObjetoRemoto extends UnicastRemoteObject implements InterfazRemota{
 	
 	public CiudadDTO buscarCiudadByIdFechas(int idCiudad, Date fechaIda, Date fechaVuelta) throws RemoteException{
 		return ModuloCiudades.getInstancia().buscarCiudadByIdFechas(idCiudad, fechaIda, fechaVuelta);
+	}
+
+	@Override
+	public List<ChatDTO> listadoChats(UsuarioDTO usuario) throws RemoteException{
+		return ModuloMensajeria.getInstancia().buscarConversaciones(usuario);
 	}
 }

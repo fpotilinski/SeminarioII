@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="Mensaje")
 public class MensajeEntity {
@@ -25,12 +28,14 @@ public class MensajeEntity {
 	@Column(name="hora")
 	private String hora;
 	
+	@Fetch(FetchMode.JOIN)
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="idUsuarioEmisor")
 	private UsuarioEntity usuario;
 
 	private String mensaje;
 	
+	@Fetch(FetchMode.JOIN)
 	@ManyToOne
 	@JoinColumn(name = "idChat")
 	private ChatEntity chat;

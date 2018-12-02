@@ -20,6 +20,7 @@ public class UsuarioDTO implements Serializable{
 	private List<ItinerarioDTO> itinerarios;
 	private CiudadDTO ciudadResidencia;
 	private List<IdiomaDTO> idiomas;
+	private List<ChatDTO> chats;
 	
 	
 	public UsuarioDTO() {}
@@ -172,6 +173,16 @@ public class UsuarioDTO implements Serializable{
 
 	public void setIdiomas(List<IdiomaDTO> idiomas) {
 		this.idiomas = idiomas;
+	}
+
+
+	public List<ChatDTO> getChats() {
+		return chats;
+	}
+
+
+	public void setChats(List<ChatDTO> chats) {
+		this.chats = chats;
 	}
 	
 	

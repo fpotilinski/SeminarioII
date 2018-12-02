@@ -1,8 +1,13 @@
 package DTO;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class MensajeDTO {
+public class MensajeDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer idMensaje;
 	private Date fecha;
 	private String hora;

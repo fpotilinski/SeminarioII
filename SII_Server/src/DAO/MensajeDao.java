@@ -63,7 +63,7 @@ public class MensajeDao {
 		dto.setIdMensaje(entity.getIdMensaje());
 		dto.setMensaje(entity.getMensaje());	
 		dto.setUsuario(UsuarioDao.getInstancia().toDTO(entity.getUsuario()));
-		dto.setChat(ChatDao.getInstancia().entityToDto(entity.getChat()));
+//		dto.setChat(ChatDao.getInstancia().entityToDto(entity.getChat()));
 		return dto;
 	}
 	

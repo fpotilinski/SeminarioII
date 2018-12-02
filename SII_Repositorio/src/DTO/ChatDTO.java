@@ -1,8 +1,13 @@
 package DTO;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ChatDTO {
+public class ChatDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idChat;
 	private String referencia;
 	private List<UsuarioDTO> usuarios;
